@@ -1,6 +1,7 @@
 // CRUD
 
 const model = require("../mongoose/model")
+const { Article } = require("../mongoose/schema")
 
 // Create
 const articleCreate = async(req, res) => {
@@ -15,6 +16,15 @@ const articleRead = async(req, res) => {
     const articles = await model.Article.find({})
     res.send(articles)
 }
+
+//FindOne
+const articleFindOne = async (req, res) => {
+    const {id} = req.params
+    const article = await model.Article.findById(id)
+    res.send(article) 
+}
+
+
 // Update
 const articleUpdate = async(req, res) => {
     const {id, content} = req.body
@@ -34,6 +44,7 @@ const articleDelete = async(req, res) => {
 module.exports = {
     articleCreate,
     articleRead,
+    articleFindOne,
     articleUpdate,
     articleDelete
 }

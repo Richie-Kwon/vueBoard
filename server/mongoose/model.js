@@ -8,7 +8,7 @@ const model = (() => {
     db.on("open", () => { console.log("connected") })
 
     mongoose.connect(`mongodb+srv://${process.env.DB_ID}:${process.env.DB_PASSWORD}@vueboard.gctvi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
-    {useNewUrlParser: true, useUnifiedTopology : true})
+    {useNewUrlParser: true, useUnifiedTopology : true })
 
 
 const model = {};
